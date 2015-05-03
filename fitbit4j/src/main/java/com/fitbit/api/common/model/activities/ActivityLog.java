@@ -50,4 +50,10 @@ public class ActivityLog extends LoggedActivityReference {
     public boolean getHasStartTime() {
         return hasStartTime;
     }
+
+    @Override
+    public String toString() {
+        return "STEPS:"+this.getSteps()+"," + "DISTANCE:"+this.getDistance();
+
+    }
 }

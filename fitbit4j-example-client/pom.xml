@@ -22,6 +22,29 @@
                 <directory>src/main/resources</directory>
             </resource>
         </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>7.1.5.v20100705</version>
+                <configuration>
+                    <webApp>/Users/bkumar3/.m2/repository/com/fitbit/fitbit-example-client/1.0.26-SNAPSHOT/fitbit-example-client-1.0.26-SNAPSHOT.war</webApp>
+                    <!--<webApp>/Applications/core-spring-3.2.b.RELEASE/apache-tomcat-7.0.34/webapps/fitbit-example-client-1.0.26-SNAPSHOT.war</webApp>-->
+                    <!--<systemPropertiesFile>${build.testOutputDirectory}/change-service.properties</systemPropertiesFile> -->
+                    <stopPort>9966</stopPort>
+                    <stopKey>foo</stopKey>
+                    <webAppConfig>
+                        <contextPath>/sdx</contextPath>
+                    </webAppConfig>
+                    <systemProperties>
+                        <systemProperty>
+                            <name>jetty.port</name>
+                            <value>8082</value>
+                        </systemProperty>
+                    </systemProperties>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
     <dependencies>
@@ -29,6 +52,27 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>fitbit4j</artifactId>
             <version>${project.version}</version>
+        </dependency>
+
+        <!-- mongodb java driver -->
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>2.11.0</version>
+        </dependency>
+
+        <!-- Spring data mongodb -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-mongodb</artifactId>
+            <version>1.2.0.RELEASE</version>
+        </dependency>
+
+        <!--cglib-->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>2.2.2</version>
         </dependency>
 
         <!-- Spring -->
